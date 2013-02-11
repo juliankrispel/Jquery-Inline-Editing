@@ -52,7 +52,7 @@
         $(this).on('change', 'input:not(.chzn-container input)', triggerSync);
     }
 
-    $(document).ready(function(){
-        $('[data-toggle="inline-editing"]').inlineEditing();
-    });
+//    $(document).ready(function(){
+//        $('[data-toggle="inline-editing"]').inlineEditing();
+//    });
 })();
