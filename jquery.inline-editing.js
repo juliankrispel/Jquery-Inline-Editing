@@ -30,7 +30,7 @@
                 type: 'PUT',
                 data: JSON.stringify(data),
                 success: function(e){
-//                    console.log(e);
+                    // do something with event
                 }
             })
         }
@@ -50,7 +50,7 @@
 
         $(this).on('change', 'select', triggerSync);
         $(this).on('change', 'textarea', triggerSync);
-        $(this).on('change', 'input:not(.chzn-container input)', triggerSync);
+        $(this).on('change', 'input:not(.select2-container input)', triggerSync);
     }
 
 //    $(document).ready(function(){
