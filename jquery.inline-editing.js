@@ -4,6 +4,8 @@
 *
 * Usage: Simply have an element with data-toggle="inline-editing" and data-url="http://yourserver.com/endpoint" like this
 * <div data-toggle="inline-editing" data-url="http://..."></div>
+*
+* Use data-array attribute to convert comma seperated values to an array
 */
 
 (function(){
