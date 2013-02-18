@@ -19,9 +19,10 @@
         var syncInput = function(el, url){
             var reg = /([a-zA-Z]*)\[([a-zA-Z]*)\]/;
             var matches = el.attr('name').match(reg);
+            var value = el.attr('data-array') ? el.val().split(',') : el.val();
             var data = {};
             data[matches[1]] = {};
-            data[matches[1]][matches[2]] = el.val();
+            data[matches[1]][matches[2]] = value;
             $.ajax({
                 contentType: 'application/json',
                 dataType: 'json',
