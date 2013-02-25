@@ -40,7 +40,7 @@
         });
 
         var triggerSync = function(){
-            if(isEmpty($(this).attr('value')))
+            if(isEmpty($(this).val()))
                 $(this).addClass('empty');
             else
                 $(this).removeClass('empty');
