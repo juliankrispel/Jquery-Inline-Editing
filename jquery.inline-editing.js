@@ -4,6 +4,8 @@
 *
 * Usage: Simply have an element with data-toggle="inline-editing" and data-url="http://yourserver.com/endpoint" like this
 * <div data-toggle="inline-editing" data-url="http://..."></div>
+*
+* Use data-array attribute to convert comma seperated values to an array
 */
 
 (function(){
@@ -19,9 +21,10 @@
         var syncInput = function(el, url){
             var reg = /([a-zA-Z]*)\[([a-zA-Z]*)\]/;
             var matches = el.attr('name').match(reg);
+            var value = el.data('array') ? el.val().split(',') : el.val();
             var data = {};
             data[matches[1]] = {};
-            data[matches[1]][matches[2]] = el.val();
+            data[matches[1]][matches[2]] = value;
             $.ajax({
                 contentType: 'application/json',
                 dataType: 'json',
@@ -29,7 +32,7 @@
                 type: 'PUT',
                 data: JSON.stringify(data),
                 success: function(e){
-//                    console.log(e);
+                    // do something with event
                 }
             })
         }
@@ -49,7 +52,7 @@
 
         $(this).on('change', 'select', triggerSync);
         $(this).on('change', 'textarea', triggerSync);
-        $(this).on('change', 'input:not(.chzn-container input)', triggerSync);
+        $(this).on('change', 'input:not(.select2-container input)', triggerSync);
     }
 
 //    $(document).ready(function(){
